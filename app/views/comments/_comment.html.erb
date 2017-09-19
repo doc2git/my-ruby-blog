@@ -1,15 +1,22 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
-
-<p>
-  <%= link_to 'Destory Comment', [comment.article, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+<div class="comment">
+  <div class="media">
+    <div class="media-body">
+      <div class="comment-body">
+        <h4 class="media-heading">
+          <%= comment.commenter %>
+        </h4>
+        <%= comment.body %>
+        <p>
+        <%= link_to 'Destory Comment', [comment.article, comment],
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'} %>
+        </p>
+      </div>
+    </div>
+    <div class="media-left media-middle" href="###">
+      <a href="javascript:;">
+        <img class="commenter-avanta media-object" src="/assets/q-zuozhu.jpg" alt="媒体对象">
+      </a>
+    </div>
+  </div>
+</div>

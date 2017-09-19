@@ -13,3 +13,36 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+var designWidth = 1024;
+(function () {
+    var setFontSize = function () {
+        designWidth = designWidth || 1024;
+        var domContainer = document.documentElement || document.body;
+        var screenWidth = domContainer.clientWidth;
+        domContainer.style.fontSize = screenWidth / designWidth * 100 + "px";
+    };
+    setFontSize();
+    window.addEventListener('resize', setFontSize, false)
+})(designWidth);
+
+window.onload = function () {
+    var dataTitle = document.getElementsByClassName("data-title");
+    for (var i = 0; i < dataTitle.length; i++) {
+        var item = dataTitle[i];
+        item.innerText = item.innerText.replace(/^[a-z]/, function () {
+            return arguments[0].toUpperCase()
+        });
+    };
+    var dataContent = document.getElementsByClassName("data-content");
+    for (var i = 0; i < dataContent.length; i++) {
+        var item = dataContent[i],
+            maxLen = 100,
+            ellipsis = document.createElement('i');
+        ellipsis.innerText = '...';
+        if(item.innerText.length > maxLen) {
+            item.innerText = item.innerText.substr(0, maxLen - 1 ).replace(/[.,;!?。，；！？]+$/, '');
+            item.appendChild(ellipsis)
+        }
+    }
+};

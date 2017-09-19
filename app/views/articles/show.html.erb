@@ -1,21 +1,27 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
-
-
-<h2>Comments</h2>
-<%= render @article.comments %>
-
-
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<div id="articles-wrapper">
+  <div class="articles container">
+    <div class="media">
+      <a class="media-left" href="#">
+        <img class="author-avanta media-object" src="/assets/q-zuozhu.jpg" alt="媒体对象">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= @article.title %>
+        </h4>
+        <%= @article.text %>
+      </div>
+    </div>
 
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+    <%= render @article.comments %>
+
+
+    <h2>Add a comment:</h2>
+    <%= render 'comments/form' %>
+
+
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+    <%= link_to 'Back', articles_path %>
+  </div>
+</div>
+</div>

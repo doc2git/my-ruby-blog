@@ -1,21 +1,39 @@
-<h1>Listing articles</h1>`
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
-
-<%= link_to 'New article', new_article_path %>
+<nav>
+  <div class="logo-b">B</div>
+  <div class="options">
+    <div>首页</div>
+    <br>
+    <div>
+      <%= link_to '新建文章', new_article_path %>
+    </div>
+    <div class="hanberger">一</div>
+  </div>
+</nav>
+<br>
+<% @articles.each do |article| %>
+    <div id="articles-area">
+      <div class="avanta">
+        <img class="author-avanta media-object" src="/assets/q-zuozhu.jpg" alt="媒体对象">
+      </div>
+      <div class="data">
+        <h3 class="data-title">
+          <%= article.title %>
+        </h3>
+        <div>
+          <div class="data-content">
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <%= article.text %>
+          </div>
+        </div>
+        <div class="data-urd">
+            <%= link_to '详情', article_path(article) %>
+            <%= link_to '编辑', edit_article_path(article) %>
+            <%= link_to '删除', article_path(article),
+                        method: :delete,
+                        data: {confirm: 'Are you sure?'} %>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+<% end %>
