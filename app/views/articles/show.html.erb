@@ -1,11 +1,11 @@
+<%= render 'structures/nav' %>
+
 <div id="articles-wrapper">
-  <div class="articles container">
-    <div class="media">
-      <a class="media-left" href="#">
-        <img class="author-avanta media-object" src="/assets/q-zuozhu.jpg" alt="媒体对象">
-      </a>
+  <div class="show-article">
+    <div class="article">
+      <div class="user-avanta"></div>
       <div class="media-body">
-        <h4 class="media-heading">
+        <h4 class="article-title media-heading">
           <%= @article.title %>
         </h4>
         <%= @article.text %>
@@ -13,15 +13,16 @@
     </div>
 
 
+    <h2 class="to-comment">我要评论</h2>
+    <%= render 'comments/comment-box' %>
+
+
     <%= render @article.comments %>
-
-
-    <h2>Add a comment:</h2>
-    <%= render 'comments/form' %>
 
 
     <%= link_to 'Edit', edit_article_path(@article) %> |
     <%= link_to 'Back', articles_path %>
+
+    <%= render 'structures/footer' %>
   </div>
-</div>
 </div>

@@ -1,0 +1,52 @@
+@import "./_public.sass"
+.comment-box
+  border: #d7d7d7 solid 1px
+  @include border-radius-global
+.comment-box *
+  position: relative
+  display: inline-block
+.comment-box--plugins--wrapper
+  display: flex
+  justify-content: flex-start
+  .hidden
+    visibility: hidden
+  form
+    flex: 0
+    width: 0
+  .comment-area-box-display
+    flex: 1 1 auto
+    min-height: 60px
+    max-height: 840px
+    _height: 120px
+    margin-left: auto
+    margin-right: auto
+    padding: 3px
+    outline: 0
+    border: 1px solid #fff7d7
+    font-size: 12px
+    word-wrap: break-word
+    overflow-x: hidden
+    overflow-y: auto
+    _overflow-y: visible
+.sub
+  position: absolute
+  top: .6rem
+  left: 2rem
+  order: 99
+  align-self: flex-end
+.plugins.comment-box--plugins
+  display: flex
+  flex-direction: row
+  align-items: flex-start
+  padding: 0
+  list-style: none
+  flex: 0 1 auto
+  .tip--please-input
+    @include tip('请输入一些文字')
+  .tip--get-empty-string
+    @include tip('评论内容不能为空哦')
+.article-comment-submit, .reply-comment-submit
+  @include universal-like-button
+  flex: 0 1 auto
+  margin: 0 .12rem
+

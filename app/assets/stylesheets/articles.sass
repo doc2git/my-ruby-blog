@@ -1,6 +1,9 @@
+@import './public.sass'
+
 #articles-area
   display: flex
   justify-content: flex-start
+  padding: 0 .6rem
   .avanta
     flex: 0 1 auto
   .data
@@ -19,9 +22,7 @@
     width: 3rem
 
 .data-title
-  font-size: .24rem
-  font-family: "Microsoft Yahei", "宋体", "黑体", Tahoma, Helvetica, Arial, sans-serif 
-  color: #0054a6
+  @include article-title
 .data-content
   position: relative
   left: -.40rem
@@ -43,19 +44,4 @@
 
 .data-urd
   a
-    color: #444
-    display: block
-    float: left
-    font: normal 12px arial, sans-serif
-    text-decoration: none
-    margin: 0 .2rem 0 0
-    border-radius: .05rem
-    height: .32rem
-    line-height: .32rem
-    padding: 0 .1rem
-    text-align: center
-    background: #fca713
-    font-size: .12rem
-      
-    
-    
+    @include a-render-button

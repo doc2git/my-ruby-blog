@@ -1,0 +1,73 @@
+//图片-默认头像
+@mixin default-avanta
+  $default-avanta-width: 126px
+  $default-avanta-height: 126px
+  $default-avanta-scale: .5
+  background-image: url('/assets/q-zuozhu.png')
+  background-repeat: no-repeat
+  background-size: #{$default-avanta-scale * 100}px  #{$default-avanta-scale * 100}px
+  width: $default-avanta-height * $default-avanta-scale
+  height: $default-avanta-height * $default-avanta-scale
+.user-avanta
+  @include default-avanta
+  flex: 1
+  background-position: 0 0
+.commenter-avanta
+  @include default-avanta
+  transform: scaleX(-1)
+
+//图片-相机
+$plugin-img-sprite-width: 147px
+$plugin-img-sprite-height: 200px
+$plugin-img-scale: .34
+$plugin-img-width: 589px
+$plugin-img-height: 411px
+$plugin-img-sprite-display-width: $plugin-img-sprite-width * $plugin-img-scale
+$plugin-img-sprite-display-height: $plugin-img-sprite-height * $plugin-img-scale
+@mixin plugin-img
+  background: url('/assets/qzone-plugins-sprite.png') no-repeat
+  background-repeat: no-repeat
+  background-size: 200px 139px
+  width: $plugin-img-sprite-display-width - 2px
+  height: $plugin-img-sprite-display-height
+#insert-image
+  @include plugin-img
+  background-position: -52px -0px
+
+//pic-icons
+@mixin gen-icon-mixin($args...)
+  @for $i from 1 through length($args)
+    $item: nth($args, $i)
+    .#{$item}
+      display: inline-block
+      background-position: 0 0
+      width: 25px
+      height: 25px
+      background: url(/assets/#{$item}.png) no-repeat
+      background-size: cover
+@include gen-icon-mixin('camera', 'like', 'ishare', 'smile', 'message', 'fav', 'link', 'attachment')
+//.ishare
+//  @include icon('ishare')
+//.smile
+//  @include icon
+//  background: url('/assets/smile.svg') no-repeat
+//.reward-1
+//  @include icon
+//  background: url('/assets/reward-1.svg') no-repeat
+//.message
+//  @include icon
+//  background: url('/assets/message.svg') no-repeat
+//.fav
+//  @include icon
+//  background: url('/assets/fav.svg') no-repeat
+//.link
+//  @include icon
+//  background: url('/assets/link.svg') no-repeat
+//.attachment
+//  @include icon
+//  background: url('/assets/attachment.svg') no-repeat
+//.sad
+//  @include icon
+//  background: url('/assets/sad.svg') no-repeat
+
+

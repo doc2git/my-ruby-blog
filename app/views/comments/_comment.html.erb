@@ -1,22 +1,22 @@
 <div class="comment">
-  <div class="media">
-    <div class="media-body">
-      <div class="comment-body">
-        <h4 class="media-heading">
-          <%= comment.commenter %>
-        </h4>
-        <%= comment.body %>
-        <p>
-        <%= link_to 'Destory Comment', [comment.article, comment],
-                    method: :delete,
-                    data: {confirm: 'Are you sure?'} %>
-        </p>
-      </div>
-    </div>
-    <div class="media-left media-middle" href="###">
-      <a href="javascript:;">
-        <img class="commenter-avanta media-object" src="/assets/q-zuozhu.jpg" alt="媒体对象">
-      </a>
+  <div class="comment-body">
+    <h4 class="media-heading">
+      <%= comment.body %>
+    </h4>
+    <div class="genius-bar">
+      <div class="like"></div>
+      <div class="ishare"></div>
+      <div class="smile"></div>
+      <div class="message"></div>
+      <div class="fav"></div>
+      <div class="attachment"></div>
     </div>
   </div>
+  <div class="plugins" >
+    <%= link_to '回复', [comment.article, comment] %>
+    <%= link_to '删除', [comment.article, comment],
+                method: :delete,
+                data: {confirm: 'Are you sure?'} %>
+  </div>
+  <%= render 'structures/user-active-info' %>
 </div>

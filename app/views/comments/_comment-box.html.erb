@@ -1,0 +1,31 @@
+<div class="comment-body comment-box">
+  <div class="comment-box--plugins--wrapper">
+    <div class="comment-area-box-display" contenteditable="true">
+      <br />
+      <br />
+      <br />
+    </div>
+    <div class="tip--please-input"></div>
+    <div class="tip--get-empty-string"></div>
+    <%= form_for([@article, @article.comments.build]) do |f| %>
+        <div class="comment-area hidden">
+          <%= f.text_area :body %>
+        </div>
+    <% end %>
+    <div class="plugins comment-box--plugins">
+      <div class="camera"></div>
+      <div class="attachment"></div>
+    </div>
+  </div>
+  <div class="genius-bar comment-box--genius-bar">
+    <div class="icons">
+    <div class="like"></div>
+    <div class="ishare"></div>
+    <div class="smile"></div>
+    <div class="message"></div>
+    <div class="fav"></div>
+    <div class="attachment"></div>
+    </div>
+  <div class="article-comment-submit">发表</div>
+  </div>
+</div>

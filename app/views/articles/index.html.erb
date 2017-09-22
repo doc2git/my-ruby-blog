@@ -1,19 +1,9 @@
-<nav>
-  <div class="logo-b">B</div>
-  <div class="options">
-    <div>首页</div>
-    <br>
-    <div>
-      <%= link_to '新建文章', new_article_path %>
-    </div>
-    <div class="hanberger">一</div>
-  </div>
-</nav>
-<br>
+<%= render 'structures/nav' %>
+
 <% @articles.each do |article| %>
     <div id="articles-area">
       <div class="avanta">
-        <img class="author-avanta media-object" src="/assets/q-zuozhu.jpg" alt="媒体对象">
+        <img class="author-avanta media-object" src="/assets/q-zuozhu.png" alt="媒体对象">
       </div>
       <div class="data">
         <h3 class="data-title">
@@ -37,3 +27,5 @@
       <br>
     </div>
 <% end %>
+
+<%= render 'structures/footer' %>
